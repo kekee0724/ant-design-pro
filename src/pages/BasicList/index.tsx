@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Card, Col, Pagination, Row, Space, Table } from 'antd';
+import { Card, Col, Pagination, Row, Space, Table } from 'antd';
+import { useRequest } from 'umi';
 import { PageContainer } from '@ant-design/pro-layout';
 
+import ActionBuilder from './builder/ActionBuilder';
+import ColumnsBuilder from './builder/ColumnsBuilder';
 import styles from './index.less';
-import { useRequest } from 'umi';
 
 const Index: React.FC = () => {
   const [page, setPage] = useState(1);
@@ -28,10 +30,7 @@ const Index: React.FC = () => {
           ...
         </Col>
         <Col xs={24} sm={12} className={styles.tableToolBar}>
-          <Space>
-            <Button type="primary">Add</Button>
-            <Button type="primary">Edit</Button>
-          </Space>
+          <Space>{ActionBuilder(init?.data?.layout?.tableToolBar)}</Space>
         </Col>
       </Row>
     );
@@ -72,7 +71,7 @@ const Index: React.FC = () => {
         {beforeTableLayout()}
         <Table
           dataSource={init?.data?.dataSource}
-          columns={init?.data?.layout?.tableColumn.filter((item) => item.hideInColumn !== true)}
+          columns={ColumnsBuilder(init?.data?.layout?.tableColumn)}
           pagination={false}
           loading={init?.loading}
         />

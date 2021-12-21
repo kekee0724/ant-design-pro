@@ -22,28 +22,29 @@ declare module BasicListApi {
   export interface Action {
     component: string;
     text: string;
-    type: string;
+    type: 'link' | 'text' | 'ghost' | 'default' | 'primary' | 'dashed' | undefined;
     action: string;
     uri: string;
-    method: string;
+    method?: string;
   }
 
   export interface TableColumn {
     title: string;
     dataIndex: string;
     key: string;
-    type: string;
-    data: Datum[];
+    type?: string;
+    data?: Datum[];
     hideInColumn?: boolean;
     sorter?: boolean;
-    mode: string;
-    actions: Action[];
+    mode?: string;
+    actions?: Action[];
+    [key: string]: any;
   }
 
   export interface TableToolBar {
     component: string;
     text: string;
-    type: string;
+    type: 'link' | 'text' | 'ghost' | 'default' | 'primary' | 'dashed' | undefined;
     action: string;
     id: string;
     uri: string;
