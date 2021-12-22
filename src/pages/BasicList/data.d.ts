@@ -20,11 +20,11 @@ declare module BasicListApi {
   }
 
   export interface Action {
-    component: string;
-    text: string;
+    component?: string;
+    text?: string;
     type: 'link' | 'text' | 'ghost' | 'default' | 'primary' | 'dashed' | undefined;
-    action: string;
-    uri: string;
+    action?: string;
+    uri?: string;
     method?: string;
   }
 

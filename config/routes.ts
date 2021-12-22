@@ -49,7 +49,7 @@
     component: './TableList',
   },
   {
-    name: 'list.basic-list',
+    name: 'basic-list',
     icon: 'table',
     path: '/basic-list',
     component: './BasicList',
