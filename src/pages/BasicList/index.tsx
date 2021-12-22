@@ -13,7 +13,7 @@ const Index: React.FC = () => {
   const [per_page, setPerPage] = useState(10);
 
   const init = useRequest<{ data: BasicListApi.Data }>(
-    `/api/admins?X-API-KEY=antd&page=${page}&per_page=${per_page}`,
+    `public/api/admins?X-API-KEY=antd&page=${page}&per_page=${per_page}`,
   );
   console.log(init);
 
